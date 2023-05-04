@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Es recomendable mantener esta llave secreta
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", cast=bool)
+ALLOWED_HOSTS = ['.vercel.app']
 
 # Se definen las aplicaciones necesarias
 INSTALLED_APPS = [
