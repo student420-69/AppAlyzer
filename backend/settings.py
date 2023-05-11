@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import django_heroku 
+import dj_database_url
 from decouple import config
 
 # Para definir nuevos paths
@@ -10,15 +12,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Llave de seguridad que permite que el proyecto sea unico y seguro
 # Es recomendable mantener esta llave secreta
-SECRET_KEY = config("SECRET_KEY")
-DEBUG = config("DEBUG", cast=bool)
-ALLOWED_HOSTS = ['.vercel.app']
-
+SECRET_KEY = 'django-insecure-enbuuw5e2q!70@9-v@2ut7wha@7g4r8nh449vx_%#7k4a7m+z$'
+DEBUG = True
 # Se definen las aplicaciones necesarias
 INSTALLED_APPS = [
     'appalyzerUSERS.apps.AppalyzerusersConfig',
     'appalyzer.apps.AppalyzerConfig',
     'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +72,7 @@ DATABASES = {
     }
 }
 
-
+#os.environ['CURL_CA_BUNDLE'] = ''
 # Validación de contraseña
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -102,11 +103,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Archivos estaticos (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -127,4 +127,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'diego.hgonzalez@alumnos.udg.mx'
-EMAIL_HOST_PASSWORD = config("PASSWORD")
+EMAIL_HOST_PASSWORD = 'D13g03s1av3rg4'
